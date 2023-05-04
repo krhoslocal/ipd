@@ -22,6 +22,9 @@ $data .= '<div class="card">
                     </th>
 					<th style="width: 12%">MOPH Clim
                     </th>
+					<th style="width: 12%">
+						select
+                    </th>
 				  	<th style="width: 5%">No.
                     </th>
                     <th style="width: 12%">regdate
@@ -73,6 +76,10 @@ if (mysqli_num_rows($query) > 0)
                             </a></div></td>';
 						};	
         $data .='<td align="center" valign="bottom"> 
+						
+                      </td>
+                      </td>
+					  <td align="center" valign="bottom"> 
 					  	'.$i.'
                       </td>
                       <td>

@@ -597,6 +597,16 @@ $(document).on('click','.chk_error',function(event){
        //     return false;
        // }
     })
+    var input = document.getElementById("_dateEnd");
+         input.addEventListener("keypress", function(event) {
+          // If the user presses the "Enter" key on the keyboard
+          if (event.key === "Enter") {
+            // Cancel the default action, if needed
+            event.preventDefault();
+            // Trigger the button element with a click
+            document.getElementById("btProcess").click();
+          }
+        });
 
     </SCRIPT>
 </BODY>

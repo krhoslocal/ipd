@@ -11,8 +11,10 @@
           echo  "<li class=\"nav-item\">";
          
           echo "<p3 class=\"text-success\">";
-          echo "สวัสดี คุณ  : " . $_SESSION['mem_name'];
-          echo "</p>";
+          echo "สวัสดี คุณ  : " . $_SESSION['mem_name']."<br>";
+          echo "p_id  : " . $_SESSION['_cid']."<br>";
+          // echo "p_moph  : " . $_SESSION['_api_key']."<br>";
+          // echo "</p>";
          
           echo "</li>";
           // echo "สวัดี คุณ".$_SESSION['mem_name'];

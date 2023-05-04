@@ -394,8 +394,18 @@ $txt .="</td></tr></table>";
       
 //เริ่มเขียน Function 
  //เริ่มเขียน Function 
-    //fetch_dataall();
-
+   
+        var input = document.getElementById("_an");
+         input.addEventListener("keypress", function(event) {
+          // If the user presses the "Enter" key on the keyboard
+          if (event.key === "Enter") {
+            // Cancel the default action, if needed
+            event.preventDefault();
+            // Trigger the button element with a click
+            document.getElementById("btProcess").click();
+          }
+        });
+ //fetch_dataall();
     function fetch_dataall() {
 		var _ian = $("#_an").val();
       	var _dateStart = $("#dateStart").val();
