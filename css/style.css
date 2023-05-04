@@ -1,0 +1,168 @@
+body {background-color:#5FC02F; background-image:none;padding:0;margin:0;}
+#sitemain {position:relative; clear:both; width:980px; height:800px; background-color:transparent; font-size:10px;}
+#grpleft {position:relative; float:left; width:200px; height:770px; background-color:transparent; font-family:verdana,arial,sans-serif; font-size:10px;}
+#logo1sp {position:relative; float:left; clear:both; width:200px; height:210px; background:transparent; font-size:1px; } 
+#logo1 {position:relative; float:left; clear:both; width:200px; height:200px; background-color:#5FC02F; font-size:10px;}
+#logo1 img {position:relative; border:0}
+#Advertsp {position:relative; float:left; clear:both; width:200px; height:130px; background:transparent; font-size:1px; } 
+#Advert {position:relative; float:left; clear:both; width:190px; height:120px; background-color:transparent; font-size:0;}
+#sttlsp {position:relative; float:left; clear:both; width:200px; height:26px; background:transparent; font-size:1px; } 
+#sttl {position:relative; float:left; clear:both; width:190px; height:26px; background:#1E90FF url("../images/uds1.gif") repeat-x; font-family:arial,helvetica,sans-serif; font-weight:bold; font-size:14px; color:#FFFFFF;}
+#sttl .lr {position:relative; float:left; background: url("../images/li1.gif") 100% 0 repeat-y; width:100%;height:26px;}
+#sttl .lt {position:relative; float:left; background: url("../images/li2.gif") 0 0 repeat-x; width:100%;}
+#sttl .ll {position:relative; float:left; background: url("../images/li3.gif") 0 0 repeat-y; width:100%;height:26px;}
+#sttl .tl {position:relative; float:left; background: url("../images/tl1.gif") 0 0 no-repeat; width:100%; height:100%;}
+#sttl .tr {position:relative; float:left; background: url("../images/tr1.gif") 100% 0 no-repeat; width:100%; height:100%;}
+#sttl .comment {position:relative; text-align:left; left:12px; top:7px;}
+#sbarsp {position:relative; float:left; clear:both; width:200px; height:50px; background:transparent; font-size:1px; } 
+#sbar {position:relative; float:left; clear:both; width:190px; height:40px; background:#BEE8FF url("../images/uds2.gif") repeat-x; font-size:10px; color:#000000;}
+#sbar .lb {position:relative; float:left; background: url("../images/li4.gif") 0 100% repeat-x; width:100%;height:40px;}
+#sbar .lr {position:relative; float:left; background: url("../images/li1.gif") 100% 0 repeat-y; width:100%;height:40px;}
+#sbar .ll {position:relative; float:left; background: url("../images/li3.gif") 0 0 repeat-y; width:100%;height:40px;}
+#sbar .bl {position:relative; float:left; background: url("../images/bl1.gif") 0 100% no-repeat; width:100%;height:40px;}
+#sbar .br {position:relative; float:left; background: url("../images/br1.gif") 100% 100% no-repeat; width:100%;height:40px;}
+#sbar .search {position:relative; float:left; left:10px; top:5px; z-index:101;}
+#sbar .search p {float:left; margin:0}
+#sbar .search input {float:left;  font-size:11px;}
+#sbar .search .sbox {width:107px; height:17px; margin-left:3px; margin-top:1px; color:#000096; border:solid 1px #8080C8; background:#F5F5FF;}
+#sbar .search .sbtn {margin-left:3px; margin-top:0; border:0;}
+#lttl1sp {position:relative; float:left; clear:both; width:200px; height:26px; background:transparent; font-size:1px; } 
+#lttl1 {position:relative; float:left; clear:both; width:190px; height:26px; background:#1E90FF url("../images/uds1.gif") repeat-x; font-family:arial,helvetica,sans-serif; font-weight:bold; font-size:14px; color:#FFFFFF;}
+#lttl1 .lr {position:relative; float:left; background: url("../images/li1.gif") 100% 0 repeat-y; width:100%;height:26px;}
+#lttl1 .lt {position:relative; float:left; background: url("../images/li2.gif") 0 0 repeat-x; width:100%;}
+#lttl1 .ll {position:relative; float:left; background: url("../images/li3.gif") 0 0 repeat-y; width:100%;height:26px;}
+#lttl1 .tl {position:relative; float:left; background: url("../images/tl1.gif") 0 0 no-repeat; width:100%; height:100%;}
+#lttl1 .tr {position:relative; float:left; background: url("../images/tr1.gif") 100% 0 no-repeat; width:100%; height:100%;}
+#lttl1 .comment {position:relative; text-align:left; left:12px; top:7px;}
+#lbd1sp {position:relative; float:left; clear:both; width:200px; height:90px; background:transparent; font-size:1px; } 
+#lbd1 {position:relative; float:left; clear:both; width:190px; height:80px; background:#BEE8FF url("../images/uds3.gif") repeat-x; font-family:arial,helvetica,sans-serif; font-size:10px; color:#000000;}
+#lbd1 .lb {position:relative; float:left; background: url("../images/li4.gif") 0 100% repeat-x; width:100%;height:80px;}
+#lbd1 .lr {position:relative; float:left; background: url("../images/li1.gif") 100% 0 repeat-y; width:100%;height:80px;}
+#lbd1 .ll {position:relative; float:left; background: url("../images/li3.gif") 0 0 repeat-y; width:100%;height:80px;}
+#lbd1 .bl {position:relative; float:left; background: url("../images/bl1.gif") 0 100% no-repeat; width:100%;height:80px;}
+#lbd1 .br {position:relative; float:left; background: url("../images/br1.gif") 100% 100% no-repeat; width:100%;height:80px;}
+#lbd1 .bod {position:relative; color:#6495ED; background:transparent; height:60px; font-family:arial; font-weight:bold; font-size:13px; margin:0; padding:5px 5px 3px 12px;}
+#lbd1 .bod a {text-decoration:none;color:#6495ED;}
+#lbd1 .bod p {font-size:14px; font-weight:bold; color:#000000;margin:0; padding:0}
+#lbd1 .bod img {vertical-align:middle;border:0;}
+#lttl2sp {position:relative; float:left; clear:both; width:200px; height:26px; background:transparent; font-size:1px; } 
+#lttl2 {position:relative; float:left; clear:both; width:190px; height:26px; background:#1E90FF url("../images/uds1.gif") repeat-x; font-family:arial,helvetica,sans-serif; font-weight:bold; font-size:14px; color:#FFFFFF;}
+#lttl2 .lr {position:relative; float:left; background: url("../images/li1.gif") 100% 0 repeat-y; width:100%;height:26px;}
+#lttl2 .lt {position:relative; float:left; background: url("../images/li2.gif") 0 0 repeat-x; width:100%;}
+#lttl2 .ll {position:relative; float:left; background: url("../images/li3.gif") 0 0 repeat-y; width:100%;height:26px;}
+#lttl2 .tl {position:relative; float:left; background: url("../images/tl1.gif") 0 0 no-repeat; width:100%; height:100%;}
+#lttl2 .tr {position:relative; float:left; background: url("../images/tr1.gif") 100% 0 no-repeat; width:100%; height:100%;}
+#lttl2 .comment {position:relative; text-align:left; left:12px; top:7px;}
+#lbd2sp {position:relative; float:left; clear:both; width:200px; height:60px; background:transparent; font-size:1px; } 
+#lbd2 {position:relative; float:left; clear:both; width:190px; height:50px; background:#BEE8FF url("../images/uds4.gif") repeat-x; font-weight:bold; font-size:14px; color:#000000;}
+#lbd2 .lb {position:relative; float:left; background: url("../images/li4.gif") 0 100% repeat-x; width:100%;height:50px;}
+#lbd2 .lr {position:relative; float:left; background: url("../images/li1.gif") 100% 0 repeat-y; width:100%;height:50px;}
+#lbd2 .ll {position:relative; float:left; background: url("../images/li3.gif") 0 0 repeat-y; width:100%;height:50px;}
+#lbd2 .bl {position:relative; float:left; background: url("../images/bl1.gif") 0 100% no-repeat; width:100%;height:50px;}
+#lbd2 .br {position:relative; float:left; background: url("../images/br1.gif") 100% 100% no-repeat; width:100%;height:50px;}
+#lbd2 .bod {position:relative; color:#000000; background:transparent; height:30px; font-family:arial; margin:0; padding:7px 5px 3px 12px;}
+#lbd2 .bod a {text-decoration:none;color:#000000;}
+#lbd2 .bod p {color:#000000;margin:0; padding:0}
+#lbd2 .bod img {vertical-align:middle;border:0;}
+#lttl3sp {position:relative; float:left; clear:both; width:200px; height:26px; background:transparent; font-size:1px; } 
+#lttl3 {position:relative; float:left; clear:both; width:190px; height:26px; background:#1E90FF url("../images/uds1.gif") repeat-x; font-family:arial,helvetica,sans-serif; font-weight:bold; font-size:14px; color:#FFFFFF;}
+#lttl3 .lr {position:relative; float:left; background: url("../images/li1.gif") 100% 0 repeat-y; width:100%;height:26px;}
+#lttl3 .lt {position:relative; float:left; background: url("../images/li2.gif") 0 0 repeat-x; width:100%;}
+#lttl3 .ll {position:relative; float:left; background: url("../images/li3.gif") 0 0 repeat-y; width:100%;height:26px;}
+#lttl3 .tl {position:relative; float:left; background: url("../images/tl1.gif") 0 0 no-repeat; width:100%; height:100%;}
+#lttl3 .tr {position:relative; float:left; background: url("../images/tr1.gif") 100% 0 no-repeat; width:100%; height:100%;}
+#lttl3 .comment {position:relative; text-align:left; left:12px; top:7px;}
+#lbd3sp {position:relative; float:left; clear:both; width:200px; height:45px; background:transparent; font-size:1px; } 
+#lbd3 {position:relative; float:left; clear:both; width:190px; height:35px; background:#BEE8FF url("../images/uds5.gif") repeat-x; font-weight:bold; font-size:14px; color:#000000;}
+#lbd3 .lb {position:relative; float:left; background: url("../images/li4.gif") 0 100% repeat-x; width:100%;height:35px;}
+#lbd3 .lr {position:relative; float:left; background: url("../images/li1.gif") 100% 0 repeat-y; width:100%;height:35px;}
+#lbd3 .ll {position:relative; float:left; background: url("../images/li3.gif") 0 0 repeat-y; width:100%;height:35px;}
+#lbd3 .bl {position:relative; float:left; background: url("../images/bl1.gif") 0 100% no-repeat; width:100%;height:35px;}
+#lbd3 .br {position:relative; float:left; background: url("../images/br1.gif") 100% 100% no-repeat; width:100%;height:35px;}
+#lbd3 .bod {position:relative; color:#000000; background:transparent; height:15px; font-family:arial; margin:0; padding:7px 5px 3px 12px;}
+#lbd3 .bod a {text-decoration:none;color:#000000;}
+#lbd3 .bod p {color:#000000;margin:0; padding:0}
+#lbd3 .bod img {vertical-align:middle;border:0;}
+#lttl4sp {position:relative; float:left; clear:both; width:200px; height:26px; background:transparent; font-size:1px; } 
+#lttl4 {position:relative; float:left; clear:both; width:190px; height:26px; background:#1E90FF url("../images/uds1.gif") repeat-x; font-family:arial,helvetica,sans-serif; font-weight:bold; font-size:14px; color:#FFFFFF;}
+#lttl4 .lr {position:relative; float:left; background: url("../images/li1.gif") 100% 0 repeat-y; width:100%;height:26px;}
+#lttl4 .lt {position:relative; float:left; background: url("../images/li2.gif") 0 0 repeat-x; width:100%;}
+#lttl4 .ll {position:relative; float:left; background: url("../images/li3.gif") 0 0 repeat-y; width:100%;height:26px;}
+#lttl4 .tl {position:relative; float:left; background: url("../images/tl1.gif") 0 0 no-repeat; width:100%; height:100%;}
+#lttl4 .tr {position:relative; float:left; background: url("../images/tr1.gif") 100% 0 no-repeat; width:100%; height:100%;}
+#lttl4 .comment {position:relative; text-align:left; left:12px; top:7px;}
+#lbd4sp {position:relative; float:left; clear:both; width:200px; height:45px; background:transparent; font-size:1px; } 
+#lbd4 {position:relative; float:left; clear:both; width:190px; height:35px; background:#BEE8FF url("../images/uds5.gif") repeat-x; font-weight:bold; font-size:14px; color:#000000;}
+#lbd4 .lb {position:relative; float:left; background: url("../images/li4.gif") 0 100% repeat-x; width:100%;height:35px;}
+#lbd4 .lr {position:relative; float:left; background: url("../images/li1.gif") 100% 0 repeat-y; width:100%;height:35px;}
+#lbd4 .ll {position:relative; float:left; background: url("../images/li3.gif") 0 0 repeat-y; width:100%;height:35px;}
+#lbd4 .bl {position:relative; float:left; background: url("../images/bl1.gif") 0 100% no-repeat; width:100%;height:35px;}
+#lbd4 .br {position:relative; float:left; background: url("../images/br1.gif") 100% 100% no-repeat; width:100%;height:35px;}
+#lbd4 .bod {position:relative; color:#000000; background:transparent; height:15px; font-family:arial; margin:0; padding:7px 12px 3px;}
+#lbd4 .bod a {text-decoration:none;color:#000000;}
+#lbd4 .bod p {color:#000000;margin:0; padding:0}
+#lbd4 .bod img {vertical-align:middle;border:0;}
+#grpright {position:relative; float:left; width:780px; height:770px; background-color:transparent; font-family:verdana,arial,sans-serif; font-size:10px; z-index:90;}
+#logo2 {position:relative; float:left; clear:both; width:780px; height:110px; background-color:#5FC02F; font-size:10px;}
+#logo2 img {position:relative; border:0}
+#Menu {position:relative; float:left; clear:both; width:780px; height:46px; background:#90EE90 url("../images/stp1.gif") repeat-x; font-weight:bold; font-size:10px; z-index:90;}
+#Menu .lb {position:relative; float:left; background: url("../images/li5.gif") 0 100% repeat-x; width:100%;height:46px;}
+#Menu .lr {position:relative; float:left; background: url("../images/li6.gif") 100% 0 repeat-y; width:100%;height:46px;}
+#Menu .lt {position:relative; float:left; background: url("../images/li7.gif") 0 0 repeat-x; width:100%;}
+#Menu .ll {position:relative; float:left; background: url("../images/li8.gif") 0 0 repeat-y; width:100%;height:46px;}
+#Menu .tl {position:relative; float:left; background: url("../images/tl2.gif") 0 0 no-repeat; width:100%; height:100%;}
+#Menu .tr {position:relative; float:left; background: url("../images/tr2.gif") 100% 0 no-repeat; width:100%; height:100%;}
+#Menu .bl {position:relative; float:left; background: url("../images/bl2.gif") 0 100% no-repeat; width:100%;height:46px;}
+#Menu .br {position:relative; float:left; background: url("../images/br2.gif") 100% 100% no-repeat; width:100%;height:46px;}
+#Menu ul {margin:0; padding:0 0 0 10px; font-size:12px;}
+#Menu li {overflow:inherit; list-style-type:none; margin:0; padding:0; float:left; } 
+#Menu a {text-decoration:none; margin:0; padding:15px 10px 0; display:block; height:31px; color:#F0F0F0; float:left;}
+#Menu a.first {margin:0; padding:15px 10px 0; } 
+#Menu a:hover {color:#000000;}
+#menud {position:relative; float:left; clear:both; width:780px; height:5px; background-color:#5FC02F; font-family:verdana,arial,sans-serif; font-size:10px;}
+#logo3 {position:relative; float:left; clear:both; width:780px; height:60px; background-color:#5FC02F; font-family:verdana,arial,sans-serif; font-size:10px;}
+#logo3 img {position:relative; border:0}
+#txtttl {position:relative; float:left; clear:both; width:780px; height:5px; background-color:transparent; font-family:verdana,arial,sans-serif; font-size:10px;}
+#grpttl {position:relative; float:left; clear:both; width:780px; height:58px; background:url("../images/lrs1.gif") repeat-y; font-family:arial,helvetica,sans-serif; font-weight:bold; font-size:22px;}
+#grpttl .lr {position:relative; float:left; background: url("../images/li6.gif") 100% 0 repeat-y; width:100%;height:58px;}
+#grpttl .lt {position:relative; float:left; background: url("../images/li7.gif") 0 0 repeat-x; width:100%;}
+#grpttl .ll {position:relative; float:left; background: url("../images/li8.gif") 0 0 repeat-y; width:100%;height:58px;}
+#grpttl .tl {position:relative; float:left; background: url("../images/tl3.gif") 0 0 no-repeat; width:100%; height:100%;}
+#grpttl .tr {position:relative; float:left; background: url("../images/tr3.gif") 100% 0 no-repeat; width:100%; height:100%;}
+#txttl {position:relative; float:left; width:700px; height:58px; background-color:transparent; font-family:arial,helvetica,sans-serif; font-weight:bold; font-size:22px;}
+#txttl .comment {position:relative; text-align:left; left:18px; top:19px;}
+#smll {position:relative; float:left; width:80px; height:58px; background-color:transparent; font-size:10px;}
+#smll .alink {position:relative; float:right; text-align:right; right:18px; top:17px; }
+#smll .alink a {text-decoration:none; margin:0; padding:0; color:#000000;}
+#smll .alink a:hover {font-weight:bold;}
+#smll .alink img {position:relative; float:left; border:0;}
+#bgtxt {position:relative; float:left; clear:both; width:780px; background-color:#FFFFFF; font-size:10px;}
+#bgtxt .lt {position:relative; float:left; background: url("../images/li9.gif") 0 0 repeat-x; width:100%;}
+#bgtxt .lb {position:relative; float:left; background: url("../images/li10.gif") 0 100% repeat-x; width:100%;}
+#bgtxt .lr {position:relative; float:left; background: url("../images/li11.gif") 100% 0 repeat-y; width:100%;}
+#bgtxt .ll {position:relative; float:left; background: url("../images/li12.gif") 0 0 repeat-y; width:100%;}
+#bgtxt .bl {position:relative; float:left; background: url("../images/bl3.gif") 0 100% no-repeat; width:100%;}
+#bgtxt .br {position:relative; float:left; background: url("../images/br3.gif") 100% 100% no-repeat; width:100%;}
+#bgtxt .bspc {padding-bottom:20px; clear:both; font-size:1px;}
+#bgtxt .spacebs {font-size:0; margin:0; padding:15px 0 0 0;} 
+#bgtxt .midtlt {position:relative; background:#ADFF2F; width:730px; left:20px; right:20px; font-family:arial,sans-serif; font-size:12px; font-weight:bold; color:#000000; margin:0; padding:2px 0 2px 10px;}
+#bgtxt ul {margin:0; padding:5px 0 5px 45px;}
+#bgtxt li {list-style-type:disc; font-family:arial,sans-serif; font-size:13px; margin:0; padding:1px 0;}
+#bgtxt table {position:relative; width:740px; left:20px; right:20px; border-collapse:collapse; border:1px solid #6B8E23; font-family:arial,sans-serif; font-size:12px; color:#000000; margin:0; padding:0;}
+#bgtxt tr {vertical-align:middle;}
+#bgtxt th {background:#ADFF2F; border:1px solid #6B8E23; text-align:left; margin:0; padding:3px 0 3px 10px; color:#000000;}
+#bgtxt td {border:1px solid #6B8E23; text-align:center;width:25%; margin:0; padding:2px 0; color:#000000;}
+#comment {position:relative; float:left; clear:both; width:780px; height:40px; background-color:transparent; font-family:verdana,arial,sans-serif; font-weight:bold; font-size:12px; color:#F8F8FF;}
+#comment .comment {position:relative; text-align:center; top:12px;}
+#Tag {position:relative; float:left; clear:both; width:780px; height:46px; background:#BEE8FF url("../images/stp2.gif") repeat-x; font-family:arial,helvetica,sans-serif; font-weight:bold; font-size:12px;}
+#Tag .lb {position:relative; float:left; background: url("../images/li5.gif") 0 100% repeat-x; width:100%;height:46px;}
+#Tag .lr {position:relative; float:left; background: url("../images/li6.gif") 100% 0 repeat-y; width:100%;height:46px;}
+#Tag .lt {position:relative; float:left; background: url("../images/li7.gif") 0 0 repeat-x; width:100%;}
+#Tag .ll {position:relative; float:left; background: url("../images/li8.gif") 0 0 repeat-y; width:100%;height:46px;}
+#Tag .tl {position:relative; float:left; background: url("../images/tl2.gif") 0 0 no-repeat; width:100%; height:100%;}
+#Tag .tr {position:relative; float:left; background: url("../images/tr2.gif") 100% 0 no-repeat; width:100%; height:100%;}
+#Tag .bl {position:relative; float:left; background: url("../images/bl2.gif") 0 100% no-repeat; width:100%;height:46px;}
+#Tag .br {position:relative; float:left; background: url("../images/br2.gif") 100% 100% no-repeat; width:100%;height:46px;}
+#Tag .tag {position:relative; text-align:center; top:15px; clear:both;}
+#Tag .tag a:link, a:visited {text-decoration:none; color:#FFFFFF;}
+#Tag .tag a:hover {text-decoration:none;color:#191970;}
