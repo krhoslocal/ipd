@@ -8,6 +8,7 @@ $pwd = "qazwsxedc123";
 
 global $name_system; 
 $name_system = "Kantharraom Hospital";
+$name_system_th = "โรงพยาบาลกันทรารมย์";
 
 $db = "ipd_paperless";
 $provincecode = "33";
@@ -31,7 +32,7 @@ mysqli_query($link,"SET NAMES utf8");
 $titleweb = "ระบบติดตาม KPI รพ.กันทรารมย์"; //
 
 global $txttitle;
-$txttitle="KPI System";
+$txttitle="ระบบเบิกเคลม งานประกันสุขภาพฯ";
 
 
 $hcon = 350;
