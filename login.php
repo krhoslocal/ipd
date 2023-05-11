@@ -47,9 +47,9 @@ if (isset($_GET['msg'])) {
   <DIV class="card">
     <DIV class="card-body login-card-body" align="center"><B><IMG src="/ipd/images/logo.gif" width="225" height="241"></B><B><br><?php echo $name_system; ?></B><BR>
       <B>
-      <P class="login-box-msg">โรงพยาบาลกันทรารมย์</P>
+      <P class="login-box-msg"><?php echo $name_system_th; ?></P>
       </B> <B class="text-black-80">
-      <P class="login-box-msg">ระบบรายงานและติดตามตัวชีวัด</P>
+      <P class="login-box-msg"><?php echo $txttitle; ?></P>
     </B></DIV>
     <!-- /.login-card-body -->
   </DIV>

@@ -597,6 +597,46 @@ $(document).on('click','.chk_error',function(event){
        //     return false;
        // }
     })
+	$(document).on('click','.chk_mophic_epi',function(event){
+        event.preventDefault();
+			var _itype = $(this).attr('data_type');
+             var _iregdate = $(this).attr('data_regdate');
+             var _ihn = $(this).attr('data_hn');
+			 var _ivacince = $(this).attr('data_code_vac');
+			console.log(_itype);
+      console.log(_iregdate);
+		  console.log(_ihn);
+		  console.log(_ivacince);
+
+
+       // if (confirm("คุณต้องการส่งข้อมูล  Moph Claim?")) {
+            $.ajax({
+                url:"./get_moph/get_moph_dmht.php",
+                method:"GET",
+                data:{action:_itype, ilind_regdate:_iregdate, ilind_hn:_ihn, ivacince:_ivacince},
+                success:function(data_string){
+						//fetch_dataall();
+                    if(data_string.status == 200)
+                    {
+						console.log(data_string.transaction_uid);
+                        toastr.success(data_string.message_th, 'SUCCESS');
+                         //fetch_dataall();
+					}
+                    else
+                    {
+						console.log(data_string);
+                        toastr.error(data_string.message_th, 'info!');
+						// fetch_dataall();
+                    }
+                }
+            });
+        //}
+       // else
+       // {
+       //     return false;
+       // }
+    })
+	
     var input = document.getElementById("_dateEnd");
          input.addEventListener("keypress", function(event) {
           // If the user presses the "Enter" key on the keyboard

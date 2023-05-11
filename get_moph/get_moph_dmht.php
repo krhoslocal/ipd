@@ -153,7 +153,8 @@ $data = array(
 curl_close($ch);  
 
 //end loop if
-}elseif ($action == "HT"){
+}
+if($action == "HT"){
 
 $silind_id = $_GET['ilind_id'];
 $silind_regdate = $_GET['ilind_regdate'];	
@@ -295,4 +296,130 @@ $query_smsg = "SELECT concat(a.regdate,'-',paa.hn,'-',a.frequency) AS seq,
 		mysqli_close();
 curl_close($ch);
 }
+if ($action == "EPI"){
+$silind_id = $_GET['ilind_id'];
+$silind_regdate = $_GET['ilind_regdate'];	
+$ssidilind_hn = $_GET['ilind_hn'];
+$sivacince = $_GET['ivacince'];
+include('../includes/dbcon.php');	
+$query_smsg = "SELECT *,concat(a.regdate,'-',a.hn,'-',a.thocode) as seq2,(SELECT aa.nameHos FROM hosdata.confighos aa WHERE aa.codehos=a.hcode LIMIT 1) AS hospital_name FROM claim_moph.target_epi a WHERE a.regdate='$silind_regdate' AND a.hn='$ssidilind_hn' AND a.thocode='$sivacince'";
+	$r_smsg = mysqli_query($dbnurse,$query_smsg);
+	$row_r_smsg = mysqli_fetch_array($r_smsg);
+	$data = array(
+			 			 	'seq'=> $row_r_smsg['seq2'],
+							'hn'=> $row_r_smsg['hn'],
+							'pid'=> $row_r_smsg['pid'],
+							'id_type'=> '1',
+							'title'=> $row_r_smsg['title'],
+							'fname'=> $row_r_smsg['fname'],
+							'lname'=> $row_r_smsg['lname'],
+							'occupa'=> $row_r_smsg['occupa'],
+							'marriage'=> $row_r_smsg['marriage'],
+							'dob'=> $row_r_smsg['dob'],
+							'sex'=> $row_r_smsg['sex'],
+							'nation'=> $row_r_smsg['nation'],
+							'hcode'=> $row_r_smsg['hcode'],
+							'hospital_name'=> $row_r_smsg['hospital_name'],
+							'visit_date_time'=> $row_r_smsg['visit_date_time'],
+							'vaccine' => [array(
+									'code' => $row_r_smsg['thocode'],
+									'lot_number' => $row_r_smsg['lot_number'],
+									'dose_quantity' => '1',
+									'manufacturer' => '',
+									'expiration_date' => $row_r_smsg['d_exp'],
+									'occurence_date_time' => $row_r_smsg['occurence_date_time'],
+									'site_code' => '',
+									'route_code' => '',
+									'license_no' => $row_r_smsg['regist_no'],
+									'name' => $row_r_smsg['doctor'],
+									'note' => ''
+							)]
+			);
+
+
+
+  $data_string_exi =  json_encode($data, JSON_UNESCAPED_UNICODE); 
+
+        $url = 'https://claim-nhso.moph.go.th/api/v1/opd/service-admissions/epi';
+        $ch = curl_init($url);       
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0); 
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($ch, CURLOPT_POST, 1);
+		curl_setopt($ch, CURLOPT_TIMEOUT, 400);                                                                   
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                   
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string_exi);    
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                      
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(                                                                          
+            'Content-Type: application/json',
+			'Authorization: Bearer '.$api_key)                                                                       
+        );
+        curl_setopt($ch, CURLOPT_SSLVERSION, 'all');                                                                                                                   
+                                                                                                                            
+        $result = curl_exec($ch);
+        $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $error = curl_error($ch);
+
+		$data_string_p = json_encode($result);
+		
+
+	$data_string = json_decode($result,true, JSON_UNESCAPED_UNICODE);
+    $transaction_uid_e = $data_string[data][transaction_uid];
+		if($data_string[status] == '200'){	 
+			 $sql = "REPLACE INTO claim_moph.claim_dmht_data (seq, hn, visit_date, vc_code, vc_drugname,vac_moph_name, pid, id_type, uuc, hcode, hospital_name, visit_date_time, dose_quantity, lot_number, expiration_date, name, license_no, transaction_uid, claim_code_response, claim_text_response, claim_datetime, claim_date, seq_ref) VALUES ('$row_r_smsg[seq]',
+			 	'$row_r_smsg[hn]',
+				'$row_r_smsg[visit_date_time]',
+				'$row_r_smsg[vc_code]',
+				'$row_r_smsg[vc_drugname]',
+				'$row_r_smsg[thocode]',
+				'$row_r_smsg[pid]',
+				'1',
+				'1',
+				'$row_r_smsg[hcode]',
+				'$row_r_smsg[hospital_name]',
+				'$row_r_smsg[visit_date_time]',
+				'1',
+				'$row_r_smsg[lot_number]',
+				'$row_r_smsg[d_exp]',
+				'$row_r_smsg[doctor]',
+				'$row_r_smsg[regist_no]',
+				'$transaction_uid_e',
+				'$data_string[status]',
+				'$data_string[message_th]',
+				'$row_r_smsg[visit_date_time]',
+				'$row_r_smsg[visit_date_time]',
+				'$row_r_smsg[seq2]')";
+		$query_g = mysqli_query($dbnurse,$sql);
+
+		}else{
+		
+		$sql = "REPLACE INTO claim_moph.claim_dmht_data (seq, hn, visit_date, vc_code, vc_drugname,vac_moph_name, pid, id_type, uuc, hcode, hospital_name, visit_date_time, dose_quantity, lot_number, expiration_date, name, license_no, transaction_uid, claim_code_response, claim_text_response, claim_datetime, claim_date, seq_ref) VALUES ('$row_r_smsg[seq]',
+			 	'$row_r_smsg[hn]',
+				'$row_r_smsg[visit_date_time]',
+				'$row_r_smsg[vc_code]',
+				'$row_r_smsg[vc_drugname]',
+				'$row_r_smsg[thocode]',
+				'$row_r_smsg[pid]',
+				'1',
+				'1',
+				'$row_r_smsg[hcode]',
+				'$row_r_smsg[hospital_name]',
+				'$row_r_smsg[visit_date_time]',
+				'1',
+				'$row_r_smsg[lot_number]',
+				'$row_r_smsg[d_exp]',
+				'$row_r_smsg[doctor]',
+				'$row_r_smsg[regist_no]',
+				'$transaction_uid_e',
+				'$data_string[status]',
+				'$data_string[message_th]',
+				'$row_r_smsg[visit_date_time]',
+				'$row_r_smsg[visit_date_time]',
+				'$row_r_smsg[seq2]')";
+			$query_g = mysqli_query($dbnurse,$sql);
+
+		}
+		mysqli_close();
+curl_close($ch);
+}
 echo json_encode($data_string);
+?>

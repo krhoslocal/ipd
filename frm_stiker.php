@@ -55,11 +55,7 @@ $data_type = 0;
  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
-    -->
-
-    
-    <!-- start graph  -->
+-->
 
   <SCRIPT type='text/javascript' src='script.js'></SCRIPT>
     <SCRIPT language='javascript' src='fusioncharts/fusioncharts.js'></SCRIPT>
@@ -223,23 +219,23 @@ $txt .="</td></tr></table>";
                 <DIV class="col-md-12">
                     <DIV class="card">
                         <DIV class="card-header">
-                            <H3 class="card-header text-white bg-success">ประมวลผลข้อมูล วันที่ Admit ผู้ป่วย</H3>
+                            <H3 class="card-header text-green bg-success">ประมวลผลข้อมูล วันที่ Admit ผู้ป่วย</H3>
                         </DIV>
                         <DIV class="card-body">
                             <DIV class="row">
                                 <DIV class="col-md-4">
-                                    <LABEL>ค้นหา AN</LABEL>
+                                    <LABEL>กรอกข้อมูลผู้ป่วย....</LABEL>
                                     <DIV class="input-group">
-                                        <DIV class="input-group-prepend">
-                                            <SPAN class="input-group-text"><I class="far fa-calendar-alt"></I></SPAN>
+                                        <DIV class="input-group-btn">
+                                            <SPAN class="input-group-text"><I class="far fa-houzz-alt fa-1x">ค้นหา AN</I></SPAN>
                                         </DIV>
-                                        <INPUT id="_an" type="text" class="input-group-lg" DATA-INPUTMASK-ALIAS="text" DATA-INPUTMASK-INPUTFORMAT="yyyy/mm/dd" DATA-MASK="" INPUTMODE="numeric">
+                                        <INPUT id="_an" type="text" class="form-control input-lg" INPUTMODE="numeric" inputmode="kana-name">
                                     </DIV>
                                 </DIV>
                             </DIV>
                             <BR>
                             <DIV class="float-right">
-                          <BUTTON onClick="fetch_dataall()" id="btProcess" class="btn btn-primary pull-right ">ประมวลผล</BUTTON>
+                          <BUTTON onClick="fetch_dataall()" id="btProcess" class="btn btn-primary btn-lg pull-right ">เรียกข้อมูลผู้ป่วย</BUTTON>
                         </DIV>
                         </DIV>
                     </DIV>
@@ -389,12 +385,31 @@ $txt .="</td></tr></table>";
   <SCRIPT src="dist/js/toastr.min.js"></SCRIPT>
   <!-- AdminLTE for demo purposes -->
   <SCRIPT src="dist/js/demo.js"></SCRIPT>
+    <!-- sweetalert2 -->
+    <SCRIPT src="dist/js/jquery.inputmask.js"></SCRIPT>
+  <!-- inputmask -->
+  <SCRIPT src="dist/js/toastr.min.js"></SCRIPT>
+  <!-- AdminLTE for demo purposes -->
+  <SCRIPT src="dist/js/demo.js"></SCRIPT>
+  <SCRIPT src="dist/js/inputmask.js"></SCRIPT>
+  <SCRIPT src="dist/js/bindings/inputmask.binding.js"></SCRIPT>
   
   <SCRIPT>
       
 //เริ่มเขียน Function 
  //เริ่มเขียน Function 
-   
+
+
+
+ $(function(){
+ 		$("#_an").inputmask({
+			mask:'99-99999',
+			placeholder: '#',
+ 			showMaskOnHover: true,
+  			showMaskOnFocus: true,
+		}) ;	
+})
+    window.onload = function(){
         var input = document.getElementById("_an");
          input.addEventListener("keypress", function(event) {
           // If the user presses the "Enter" key on the keyboard
@@ -405,6 +420,8 @@ $txt .="</td></tr></table>";
             document.getElementById("btProcess").click();
           }
         });
+         input.focus();
+    }
  //fetch_dataall();
     function fetch_dataall() {
 		var _ian = $("#_an").val();
@@ -419,8 +436,25 @@ $txt .="</td></tr></table>";
         method: 'GET',
         data:{serach_an:_ian},
         dataType: 'HTML',
-        success: function(data) {
-          $('#show_dataall').html(data);
+        success: function(data){
+              toastr.options = {
+              "closeButton": false,
+              "debug": false,
+              "newestOnTop": false,
+              "progressBar": false,
+              "positionClass": "toast-top-center",
+              "preventDuplicates": false,
+              "showDuration": "300",
+              "hideDuration": "1000",
+              "timeOut": "1000",
+              "extendedTimeOut": "1000",
+              "showEasing": "swing",
+              "hideEasing": "linear",
+              "showMethod": "fadeIn",
+              "hideMethod": "fadeOut"
+            }
+              toastr.success("จัดเตรียมข้อมูลผู้ป่วย", 'success');
+             $('#show_dataall').html(data);
         }
       });
     }
