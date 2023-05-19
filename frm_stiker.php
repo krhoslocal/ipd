@@ -12,11 +12,10 @@ $data_type = 0;
 ?>
 
 <?php
-//if (isset($_SESSION['UserID'])) {
-//  $Status = $_SESSION["level"];
-//    if ($Status == "0" or $Status == "1") {
+if (isset($_SESSION['_tocard'])) {
+  $Status = $_SESSION["_tocard"];
+    if ($Status == "0" or $Status == "1") {
 ?>
-
 <!DOCTYPE html>
 <HTML>
 
@@ -463,3 +462,13 @@ $txt .="</td></tr></table>";
 </BODY>
 
 </HTML>
+<?php
+  }else{
+    header("location: ./login.php?chk=Y");
+  }
+// if session not LIKE Admin
+}else{
+  header("location: ./login.php?chk=Y");
+}
+// if not have session
+?>
