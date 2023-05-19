@@ -59,7 +59,6 @@ if (isset($_SESSION['UserID'])) {
 
   <SCRIPT type='text/javascript' src='script.js'></SCRIPT>
     <SCRIPT language='javascript' src='fusioncharts/fusioncharts.js'></SCRIPT>
- 
 
 <!-- end graph  -->
 </HEAD>
