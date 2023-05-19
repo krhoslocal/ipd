@@ -41,13 +41,13 @@ $data .= '<div class="card">
                     </th>
 					 <th style="width: 13%">CID
                     </th>
-                    <th style="width: 50%">fullname
+                    <th style="width: 20%">fullname
                     </th>
                     <th style="width: 25%">code_vac
                     </th>
 					<th style="width: 25%">lot_number
                     </th>
-					 <th style="width: 15%">regdate
+					 <th style="width: 15%">namedrug
                     </th>
 					 
                   </tr>
@@ -102,7 +102,7 @@ if (mysqli_num_rows($query) > 0)
 				 	'.$row['lot_number'].'
                  </td>
 				 <td align="center">
-				 	'.$row['regdate'].'
+				 	'.$row['namedrug'].'
                  </td>
                     </tr>';
 				$i++;
@@ -110,7 +110,7 @@ if (mysqli_num_rows($query) > 0)
 }
 else
 {	     
-	$data .= '<tr><td colspan="11" align="center">ไม่มีข้อมูล</td></tr>';
+	$data .= '<tr><td colspan="11" align="center">ไม่มีข้อมูล EPI</td></tr>';
 }
 $data .='</tbody></table></div></div>
 			<div class="modal-footer"> 
@@ -535,7 +535,7 @@ $data .= '<div class="card">
                     </th>
 					 <th style="width: 13%">CID
                     </th>
-                    <th style="width: 50%">fullname
+                    <th style="width: 20%">fullname
                     </th>
                     <th style="width: 25%">namelab
                     </th>

@@ -11,7 +11,7 @@ if($_itypeservice =='EPI'){
 	if($_tab  =='1'){
 $sql = '';
 $data ='';
-$sql = 'SELECT a.regdate,a.hn,pt.getCid(a.hn) as cid,pt.getFullname(a.hn) AS fullname,a.thocode AS code_vac,a.lot_number,(SELECT if(cc.hn<>"","1","0") AS chk FROM claim_moph.claim_epi_data cc WHERE cc.visit_date=a.regdate AND cc.pid=(pt.getCid(a.hn)) AND cc.vac_moph_code=a.thocode AND cc.claim_code_response="200" limit 1) as chk,(SELECT if(cd.hn<>"","1","0") AS chk FROM nhso.nhso_authen cd WHERE cd.authen_date=a.regdate AND cd.cid=pt.getCid(a.hn) LIMIT 1) as chk_authen FROM claim_moph.target_epi a WHERE a.regdate BETWEEN "'.$_startdate.'" AND "'.$_enddate.'"  GROUP BY regdate,hn,thocode';
+$sql = 'SELECT a.regdate,a.hn,pt.getCid(a.hn) as cid,pt.getFullname(a.hn) AS fullname,a.thocode AS code_vac,a.lot_number,(SELECT if(cc.hn<>"","1","0") AS chk FROM claim_moph.claim_epi_data cc WHERE cc.visit_date=a.regdate AND cc.pid=(pt.getCid(a.hn)) AND cc.vac_moph_code=a.thocode AND cc.claim_code_response="200" limit 1) as chk,(SELECT if(cd.hn<>"","1","0") AS chk FROM nhso.nhso_authen cd WHERE cd.authen_date=a.regdate AND cd.cid=pt.getCid(a.hn) LIMIT 1) as chk_authen,a.namedrug as namedrug FROM claim_moph.target_epi a WHERE a.regdate BETWEEN "'.$_startdate.'" AND "'.$_enddate.'"  GROUP BY regdate,hn,thocode';
 
 $query = mysqli_query($dbnurse,$sql);
 $data .= '<div class="card">
@@ -33,13 +33,13 @@ $data .= '<div class="card">
                     </th>
 					 <th style="width: 13%">CID
                     </th>
-                    <th style="width: 50%">fullname
+                    <th style="width: 25%">fullname
                     </th>
                     <th style="width: 25%">code_vac
                     </th>
 					<th style="width: 25%">lot_number
                     </th>
-					 <th style="width: 15%">regdate
+					 <th style="width: 15%">namedrug
                     </th>
 					 
                   </tr>
@@ -94,7 +94,7 @@ if (mysqli_num_rows($query) > 0)
 				 	'.$row['lot_number'].'
                  </td>
 				 <td align="center">
-				 	'.$row['regdate'].'
+				 	'.$row['namedrug'].'
                  </td>
                     </tr>';
 				$i++;
@@ -122,20 +122,11 @@ $data .='
 </script>		
 	';	  
 echo $data;
-}elseif($_tab  == '2'){
+}
+if($_tab  == '2'){
 $sql = '';
 $data ='';
-$sql = 'SELECT * FROM (
-SELECT a.regdate,
-	a.hn,
-	pt.getCid(a.hn) as cid,
-	pt.getFullname(a.hn) AS fullname,
-	a.thocode AS code_vac,
-	a.lot_number,
-	(SELECT if(cc.hn<>"","1","0") AS chk FROM claim_moph.claim_epi_data cc WHERE cc.visit_date=a.regdate AND cc.pid=(pt.getCid(a.hn)) AND cc.vac_moph_code=a.thocode AND cc.claim_code_response="200" limit 1) as chk,
-	(SELECT if(cd.hn<>"","1","0") AS chk FROM nhso.nhso_authen cd WHERE cd.authen_date=a.regdate AND cd.cid=pt.getCid(a.hn) LIMIT 1) as chk_authen
-FROM claim_moph.target_epi a 
-WHERE a.regdate BETWEEN "'.$_startdate.'" AND "'.$_enddate.'"  GROUP BY regdate,hn,thocode) AS dataq WHERE dataq.chk IS null GROUP BY regdate,hn,thocode order by note asc';
+$sql = 'SELECT * FROM (SELECT a.regdate,a.hn,pt.getCid(a.hn) as cid,pt.getFullname(a.hn) AS fullname,a.thocode AS vc_code,a.lot_number,a.d_exp,(SELECT if(cc.hn<>"","1","0") AS chk FROM claim_moph.claim_epi_data cc WHERE cc.visit_date=a.regdate AND cc.pid=(pt.getCid(a.hn)) AND cc.vac_moph_code=a.thocode AND cc.claim_code_response="200" limit 1) as chk,(SELECT if(cd.hn<>"","1","0") AS chk FROM nhso.nhso_authen cd WHERE cd.authen_date=a.regdate AND cd.cid=pt.getCid(a.hn) LIMIT 1) as chk_authen FROM claim_moph.target_epi a WHERE a.regdateBETWEEN "'.$_startdate.'" AND "'.$_enddate.'") AS dataq WHERE dataq.chk IS null GROUP BY regdate,hn,vc_code';
 
 $query = mysqli_query($dbnurse,$sql);
 $data .= '<div class="card">
@@ -195,7 +186,7 @@ if (mysqli_num_rows($query) > 0)
 		$data .='<a href="#" class="btn btn-success btn-sm" >Detial</a>';
 					} else{
 		$data .='<div class="action-buttons">
-							<a class="red chk_mophic_epi" data_type="'.$_itypeservice.'" data_regdate="'.$row['regdate'].'" data_hn="'.$row['hn'].'" data_code_vac="'.$row['code_vac'].'"> 
+							<a class="red chk_mophic_epi" data_type="'.$_itypeservice.'" data_regdate="'.$row['regdate'].'" data_hn="'.$row['hn'].'" data_code_vac="'.$row['vc_code'].'"> 
                                     <button type="button" class="btn btn-warning">ส่งข้อมูล "'.$_itypeservice.'"</button>
                             </a></div></td>';
 						};	
@@ -232,7 +223,7 @@ if (mysqli_num_rows($query) > 0)
 }
 else
 {	     
-	$data .= '<tr><td colspan="12" align="center">ไม่มีข้อมูล</td></tr>';
+	$data .= '<tr><td colspan="12" align="center">ไม่มีข้อมูล Tag2</td></tr>';
 }
 $data .='</tbody></table></div></div>
 			<div class="modal-footer"> 
@@ -252,7 +243,8 @@ $data .='
 </script>		
 	';	  
 echo $data;
-}elseif($_tab  == '3'){
+}
+if($_tab  == '3'){
 $sql = '';
 $data ='';
 $sql = 'SELECT a.regdate,
@@ -377,7 +369,8 @@ $data .='
 </script>		
 	';	  
 echo $data;
-}elseif($_tab  == '4'){
+}
+if($_tab  == '4'){
 $sql = '';
 $data ='';
 $sql = 'SELECT a.regdate,a.hn,pt.getFullname(a.hn) AS fullname,a.namelab,a.result_lab,a.regdate,a.type_group,pt.getCid(a.hn) as cid,(SELECT if(cc.hn<>"","1","0") AS chk FROM claim_moph.claim_dmht_data cc WHERE cc.visit_date=a.regdate AND cc.pid=(pt.getCid(a.hn)) and cc.claim_code_response="200" limit 1) as chk,(SELECT if(cd.hn<>"","1","0") AS chk FROM nhso.nhso_authen cd WHERE cd.authen_date=a.regdate AND cd.cid=pt.getCid(a.hn) LIMIT 1) as chk_authen,pt.getCid(a.hn) as cid
