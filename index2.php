@@ -164,23 +164,10 @@ $data_type = 0;
     <?php
     $g_no=$_GET['g_no'];
     include("condb.php");
-		   ///แก้ไข
-         // $sqlp = "select  kpi_group.g_no,kpi_group.g_name as g_name,
-        //  count(*) as total_kpi,
-         // sum(if(flag_result='1',1,0)) as kpi_pass,
-         // sum(if(flag_result !='1',1,0)) as kpi_nopass,
-         //(sum(if(flag_result='1',1,0)) * 100)/count(*) as percent,
-         // now() as kpi_update
-         // from kpi INNER JOIN  kpi_group on kpi.kpi_group=kpi_group.g_no WHERE kpi_group='$g_no'";
-		// include("condb.php");
-			  $pdo->exec("set names utf8");
-             // $stmt = $pdo->query("select * from kpi_group");
+			    $pdo->exec("set names utf8");  
 					$sqlp = $pdo->query("select * from ipd_paperless.kpi_group b WHERE b.g_no='$g_no'");
-				
-//$resultstp=mysqli_query($,$sqlp);
-//$rowstp=mysqli_fetch_array($resultstp);
 $row_q = $sqlp->fetch();
-$txt = "<div align='center'><h3>".$row_q['g_comment']."</h3></div><br>";
+$txt = "<div align='center'><h3>".$_SESSION['_namesystem']."</h3></div><br>";
 $txt .= "<table width='100%'>";
 $txt .= "<tr align='center'><td align='center'>";
 
@@ -190,7 +177,7 @@ $strXMLp =  recivedata($goal,$rowstp['percent'],0,$scale) ;//เป้าหม�
 
 //$txt .= renderChart("fusioncharts/angulargauge.swf", "", $strXMLp, "myChartId$rowdata[kpi_id]", 900, 360, 0, 0);
 
-$txt .= "<div align='center' style='font-size:10px'> Update : ".retDatets($rowstp['kpi_update'])."</div>";
+$txt .= "<div align='center' style='font-size:10px'> Update : ".$_SESSION['_version']."</div>";
 
 //$txt .= '<iframe frameBorder="0" width="320" height="320" scrolling="no" src="gauage.php?kpi_tar='.$goal.'&db_rate='.$rowstp['percent'].'&kpi_type_data='.$data_type.'&kpi_scale='.$scale.'&kpi_radius=1" ></iframe>'; 
 
@@ -218,45 +205,8 @@ $txt .="</td></tr></table>";
 		<DIV class="card-body">
 		
 		<DIV class="container-fluid">
-            <DIV class="row">
-                <DIV class="col-md-12">
-                    <DIV class="card">
-                        <DIV class="card-header">
-                            <H3 class="card-header text-white bg-success">ตรวจสอบข้อมูล</H3>
-                        </DIV>
-                        <DIV class="card-body">
-                            <DIV class="row">
-                                <DIV class="col-md-4">
-                                    <LABEL>วันที่เริ่มต้น:</LABEL>
-                                    <DIV class="input-group">
-                                        <DIV class="input-group-prepend">
-                                            <SPAN class="input-group-text"><I class="far fa-calendar-alt"></I></SPAN>
-                                        </DIV>
-                                        <INPUT id="dateStart" value="01/12/2565" type="text" class="form-control" DATA-INPUTMASK-ALIAS="datetime" DATA-INPUTMASK-INPUTFORMAT="dd/mm/yyyy" DATA-MASK="" INPUTMODE="numeric">
-                                    </DIV>
-                                </DIV>
-                                <DIV class="col-md-4">
-                                    <LABEL>วันที่สิ้นสุด:</LABEL>
-                                    <DIV class="input-group">
-                                        <DIV class="input-group-prepend">
-                                            <SPAN class="input-group-text"><I class="far fa-calendar-alt"></I></SPAN>
-                                        </DIV>
-                                        <INPUT id="dateEnd" value="23/12/2565" type="text" class="form-control" DATA-INPUTMASK-ALIAS="datetime" DATA-INPUTMASK-INPUTFORMAT="dd/mm/yyyy" DATA-MASK="" INPUTMODE="numeric">
-                                    </DIV>
-                                </DIV>
-                            </DIV>
-                            <BR>
-                            <DIV class="float-right">
-                                <BUTTON onClick="runProcess()" id="btProcess" class="btn btn-primary pull-right ">ค้นหา</BUTTON>
-                                <BUTTON onClick="exportF16()" id="bt-export-16file"  class="btn btn-success pull-right">ส่งออก 16 แฟ้ม</BUTTON>
-                                <BUTTON  onClick="runProcess()" id="bt-send-api"  class="btn btn-info pull-right">ส่ง 16 แฟ้ม API</BUTTON>
-                            </DIV>
-                        </DIV>
-                    </DIV>
-                </DIV>
-            </DIV>
-        </DIV>		
-		  
+            
+        
 		</DIV>
 	 </DIV>
  
@@ -278,7 +228,7 @@ $txt .="</td></tr></table>";
 			$row_QQ2ht_day = $QQ2_ht_day->fetch();
 		?>
            <DIV class="card">
-              <DIV class="card-body">
+             <DIV class="card-body">
         			<!-- Main content -->
     <section class="content">
       <DIV class="container-fluid">
@@ -396,71 +346,7 @@ $txt .="</td></tr></table>";
 		WHERE a.dateadm BETWEEN '2021-01-01' AND CURDATE()  ORDER BY a.dateadm DESC LIMIT 500");
           ?>
           <!--  start project -->
-          <DIV class="card">
-            <DIV class="card-body">
-              <TABLE id="example1" class="table table-bordered table-striped">
-                <THEAD>
-                  <TR align="center">
-                    <TH style="width: 12%">
-                      สถานะ Admit
-                    </TH>
-                    <TH style="width: 10%">AN
-                    </TH>
-                    <TH style="width: 10%">HN
-                    </TH>
-                    <TH style="width: 20%">ชื่อ-นามสกุล
-                    </TH>
-					 <TH style="width: 5%">อายุ
-                    </TH>
-					 <TH style="width: 25%">สิทธิการรักษา
-                    </TH>
-                    <TH style="width: 10%">Ward admit
-                    </TH>
-                    <TH style="width: 20%" class="text-center">พิมพ์ Sticker
-                    </TH>
-
-                  </TR>
-                </THEAD>
-                <TBODY>
-                  <?php
-                  while ($row = $stmt->fetch()) {
-                  ?>
-                    <TR>
-                      <TD><A href="#" class="btn btn-warning btn-sm" DATA-TOGGLE="modal" DATA-TARGET="#_status_admit">
-					  	<?php echo $row["status"]; ?></A>
-                      </TD>
-                      <TD>
-					  <BUTTON id="get_an" type="button" class="btn btn-danger"><?php echo $row["an"]; ?></BUTTON>
-                      </TD>
-                      <TD>
-                        <?php echo $row["hn"]; ?>
-                      </TD>
-                      <TD>
-                     <?php echo $row["fullname"]; ?> 
-                 </TD>
-				 <TD align="center">
-                     <?php echo $row["age"].' ปี'; ?> 
-                 </TD>
-				 <TD>
-                     <?php echo $row["ptclass"]; ?> 
-                 </TD>
-                 <TD>
-                 <?php echo $row["sendward"]; ?> 
-                 </TD>
-                 <TD><A href="#" class="btn btn-primary btn-sm" DATA-TOGGLE="modal" DATA-TARGET="#_print_admit">
-     			            พิมพ์เอกสาร
-				 </A>
-                 </TD>
-                 
-                    </TR>
-                  <?php
-                  }
-                  ?>
-                </TBODY>
-              </TABLE>
-            </DIV>
-          </DIV>
-	<?php 	  
+          <?php 	  
 	};
 	if($g_no=='3'){
 	
@@ -468,191 +354,12 @@ $txt .="</td></tr></table>";
 	if($g_no=='4'){
 	$stmt_dt = $pdo->query("SELECT * FROM claim_moph.claim_dt_data a");
 	?>
-	<DIV class="card">
-            <DIV class="card-body">
-              <TABLE id="dmht" class="table table-bordered table-striped">
-                <THEAD>
-                  <TR align="center">
-				  	<TH style="width: 1%">
-                    </TH>
-                    <TH style="width: 12%">hn
-                    </TH>
-                    <TH style="width: 10%">visit_date
-                    </TH>
-                    <TH style="width: 10%">pid
-                    </TH>
-                    <TH style="width: 20%">fullname
-                    </TH>
-					 
-					 <TH style="width: 25%">visit_date_time
-                    </TH>
-					<TH style="width: 25%">DM
-                    </TH>
-					<TH style="width: 25%">HT
-                    </TH>
-                    <TH style="width: 10%">transaction_uid
-                    </TH>
-					<TH style="width: 10%">claim_text_response
-                    </TH>
-					<TH style="width: 10%">claim_datetime
-                    </TH>
-                    <TH style="width: 20%" class="text-center">พิมพ์ Sticker
-                    </TH>
-					<TH style="width: 20%" class="text-center">พิมพ์ Sticker
-                    </TH>
-
-                  </TR>
-                </THEAD>
-                <TBODY>
-                  <?php
-                  while ($row = $stmt_dt->fetch()) {
-                  ?>
-                    <TR>
-						<TD>
-                      </TD>
-                      <TD><A href="#" class="btn btn-warning btn-sm" DATA-TOGGLE="modal" DATA-TARGET="#_status_admit">
-					  	<?php echo $row["hn"]; ?></A>
-                      </TD>
-                      <TD>
-					  <BUTTON id="get_an" type="button" class="btn btn-danger"><?php echo $row["visit_date"]; ?></BUTTON>
-                      </TD>
-                      <TD>
-                        <?php echo $row["pid"]; ?>
-                      </TD>
-                      <TD>
-                     <?php echo $row["fullname"]; ?> 
-                 </TD>
-				 
-				 <TD>
-                     <?php echo $row["visit_date_time"]; ?> 
-                 </TD>
-				 <TD>
-                     <?php echo $row["Dm"]; ?> 
-                 </TD>
-				 <TD>
-                     <?php echo $row["ht"]; ?> 
-                 </TD>
-				 <TD>
-                     <?php echo $row["transaction_uid"]; ?> 
-                 </TD>
-				 <TD>
-                     <?php echo $row["claim_text_response"]; ?> 
-                 </TD>
-				 <TD>
-                     <?php echo $row["claim_datetime"]; ?> 
-                 </TD>
-                 <TD>
-                 <?php echo $row["claim_datetime"]; ?> 
-                 </TD>
-                 <TD><A href="#" class="btn btn-primary btn-sm" DATA-TOGGLE="modal" DATA-TARGET="#_print_admit">
-     			            พิมพ์เอกสาร
-				 </A>
-                 </TD>
-                 
-                    </TR>
-                  <?php
-                  }
-                  ?>
-                </TBODY>
-              </TABLE>
-            </DIV>
-          </DIV>
-	<?php	
+          <?php	
 	};
 	if($g_no=='5'){
 	$stmt_dt = $pdo->query("SELECT * FROM claim_moph.claim_dt_data a;");
 	?>
-	<DIV class="card">
-            <DIV class="card-body">
-              <TABLE id="dmht" class="table table-bordered table-striped">
-                <THEAD>
-                  <TR align="center">
-				  	<TH style="width: 1%">
-                    </TH>
-                    <TH style="width: 12%">hn
-                    </TH>
-                    <TH style="width: 10%">visit_date
-                    </TH>
-                    <TH style="width: 10%">pid
-                    </TH>
-                    <TH style="width: 20%">fullname
-                    </TH>
-					 
-					 <TH style="width: 25%">visit_date_time
-                    </TH>
-					<TH style="width: 25%">DM
-                    </TH>
-					<TH style="width: 25%">HT
-                    </TH>
-                    <TH style="width: 10%">transaction_uid
-                    </TH>
-					<TH style="width: 10%">claim_text_response
-                    </TH>
-					<TH style="width: 10%">claim_datetime
-                    </TH>
-                    <TH style="width: 20%" class="text-center">พิมพ์ Sticker
-                    </TH>
-					<TH style="width: 20%" class="text-center">พิมพ์ Sticker
-                    </TH>
-
-                  </TR>
-                </THEAD>
-                <TBODY>
-                  <?php
-                  while ($row = $stmt_dt->fetch()) {
-                  ?>
-                    <TR>
-						<TD>
-                      </TD>
-                      <TD><A href="#" class="btn btn-warning btn-sm" DATA-TOGGLE="modal" DATA-TARGET="#_status_admit">
-					  	<?php echo $row["hn"]; ?></A>
-                      </TD>
-                      <TD>
-					  <BUTTON id="get_an" type="button" class="btn btn-danger"><?php echo $row["visit_date"]; ?></BUTTON>
-                      </TD>
-                      <TD>
-                        <?php echo $row["pid"]; ?>
-                      </TD>
-                      <TD>
-                     <?php echo $row["fullname"]; ?> 
-                 </TD>
-				 
-				 <TD>
-                     <?php echo $row["visit_date_time"]; ?> 
-                 </TD>
-				 <TD>
-                     <?php echo $row["Dm"]; ?> 
-                 </TD>
-				 <TD>
-                     <?php echo $row["ht"]; ?> 
-                 </TD>
-				 <TD>
-                     <?php echo $row["transaction_uid"]; ?> 
-                 </TD>
-				 <TD>
-                     <?php echo $row["claim_text_response"]; ?> 
-                 </TD>
-				 <TD>
-                     <?php echo $row["claim_datetime"]; ?> 
-                 </TD>
-                 <TD>
-                 <?php echo $row["claim_datetime"]; ?> 
-                 </TD>
-                 <TD><A href="#" class="btn btn-primary btn-sm" DATA-TOGGLE="modal" DATA-TARGET="#_print_admit">
-     			            พิมพ์เอกสาร
-				 </A>
-                 </TD>
-                 
-                    </TR>
-                  <?php
-                  }
-                  ?>
-                </TBODY>
-				          
-              </TABLE>
-            </DIV>
-          </DIV>
-	<?php	
+          <?php	
 	};
 	?>
           <!--   end proj -.
@@ -663,12 +370,10 @@ $txt .="</td></tr></table>";
    
       
           right col -->
-        </DIV>
-        <!-- /.row (main row) -->
+      </DIV>
+      <!-- /.row (main row) -->
 		 <!-- include Tag -->
-		<?php include('tag_tab.php'); ?>
-		
-    </DIV>
+             </DIV>
 	
 	
 	

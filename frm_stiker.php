@@ -445,7 +445,7 @@ $txt .="</td></tr></table>";
               "positionClass": "toast-top-center",
               "preventDuplicates": false,
               "showDuration": "300",
-              "hideDuration": "1000",
+              "hideDuration": "2000",
               "timeOut": "1000",
               "extendedTimeOut": "1000",
               "showEasing": "swing",

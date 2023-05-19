@@ -40,7 +40,6 @@ $itransaction_uid = $_GET['transaction_uid'];
         $error = curl_error($ch);
 
     $data_string = json_decode($result,true, JSON_UNESCAPED_UNICODE);
-    //echo $data_string[data];
 
     if($data_string[status] == '200')
                 { 
@@ -52,6 +51,7 @@ $itransaction_uid = $_GET['transaction_uid'];
                     $sql = "REPLACE INTO claim_moph.target_confirm (transaction_uid, pid, status, status_thai) VALUES ('$_itransaction_uid', '$_ipid', '$_iresult','$_istatus_th');";
                     //echo $sql;
                     mysqli_query($dbnurse,$sql);
+					mysqli_close();
                     echo "true";
                 } else { 
                     echo "false";

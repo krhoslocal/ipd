@@ -3,6 +3,7 @@ session_start();
 error_reporting(E_ALL ^ E_NOTICE); 
 
 include("includes/dbconn.php");    
+require("includes/fpdf/fpdf.php"); 
 include("data/data.php");
 include("includes/fusioncharts.php");
 $goal=100;

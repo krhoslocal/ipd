@@ -120,11 +120,10 @@ if (isset($_SESSION['mem_id'])) {
 
         <DIV class="user-panel mt-3 pb-3 mb-3 d-flex">
 
-          <!---
-        <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
-        </div>
-      -->
+        <DIV class="info">
+          <A href="#" class="d-block">Alexander Pierce</A>
+        </DIV>
+ 
         </DIV>
 
         <!-- Sidebar Menu -->
@@ -149,7 +148,7 @@ if (isset($_SESSION['mem_id'])) {
         <DIV class="container-fluid">
           <!-- Small boxes (Stat box) -->
           <DIV class="card">
-            <DIV class="card-body">
+            <DIV class="badge-pill">
 		
 			</DIV>
 		 </DIV>
@@ -162,7 +161,7 @@ if (isset($_SESSION['mem_id'])) {
                 <DIV class="col-md-12">
                     <DIV class="card">
                         <DIV class="card-header">
-                            <H3 class="card-header text-white bg-success">ประมวลผลข้อมูล </H3>
+                            <H3 class="card-header text-white bg-warning">ประมวลผลข้อมูล </H3>
                         </DIV>
                         <DIV class="card-body">
                             <DIV class="row">
@@ -193,97 +192,81 @@ if (isset($_SESSION['mem_id'])) {
                                         <INPUT type="text" id="dateEnd" value="<?php echo $today; ?>" class="form-control" DATA-INPUTMASK-ALIAS="datetime" DATA-INPUTMASK-INPUTFORMAT="yyyy-mm-dd" DATA-MASK="" IM-INSERT="true">
                                     </DIV>
                                 </DIV>
-								<DIV class="col-md-2">
-									<DIV align="center"><LABEL>DM</LABEL></DIV>
-                                   	<DIV class="small-box bg-success">
-										<DIV class="inner">
-										  <H3 align="center"><?php echo $row_QQ2dm_day['c_dm'].'/'.$row_QQ2dm_day['c_co']; ?></H3>
-				
-										  <P>DM Per Day</P>
-										  <H3 align="center"><?php echo $row_QQ2dm_day['c_dm'].'/'.$row_QQ2dm_day['c_co']; ?></H3>
-										</DIV>
-										<DIV class="icon">
-										  <I class="ion ion-person-add"></I>
-										</DIV>
-										<A href="#" DATA-TOGGLE="modal" DATA-TARGET="#_showdata_dm_perday" class="small-box-footer">More info <I class="fas fa-arrow-circle-right"></I></A>
-									  </DIV>
-                                    
-                                </DIV>
-						
-								<DIV class="col-md-2">
-                                    <DIV align="center"><LABEL>HT</LABEL></DIV>
-                                    	<DIV class="small-box bg-yellow">
-												<DIV class="inner">
-												  <H3 align="center"><?php echo $row_QQ2ht_day['c_dm'].'/'.$row_QQ2ht_day['c_co']; ?></H3>
-						
-												  <P>HT Per Day</P>
-												  <DIV class="row">
-												  <DIV class="col-md-6">
-												  		<H3 align="center"><?php echo $row_QQ2ht_day['c_dm']; ?></H3>
-												  </DIV>
-												  <DIV class="col-md-6">
-												 		<H3 align="center"><?php echo $row_QQ2ht_day['c_co']; ?></H3>
-												  </DIV>
-												  </DIV>
-												</DIV>
-												<DIV class="icon">
-												  <I class="ion ion-person-add"></I>
-												</DIV>
-												<A href="#" DATA-TOGGLE="modal" DATA-TARGET="#_showdata_ht_perday" class="small-box-footer">More info <I class="fas fa-arrow-circle-right"></I></A>
-											  </DIV>
-											
-										</DIV>
-                                	</DIV>
-                            	</DIV>
-							
-							
-							  <DIV class="col-md-6">
-								   
-                                    		<LABEL class="toast-bottom-right">ประเภทข้อมูลประมวลผล</LABEL>
-									
-                                    <DIV class="row">
-                                        <DIV class="col-sm-3">
-                                            <DIV class="form-group clearfix">
-                                                <DIV class="icheck-success d-inline">
+                              <DIV class="col-md-4" align="center">
+                                <DIV align="center" class="card-header text-white bg-success"><LABEL class="font-weight-light">เลือกประเภทเบิกเคลม</LABEL></DIV>
+                                                <!--  <DIV class="small-box bg-success">
+                                  <DIV class="inner">
+                                    <H3 align="center"><?php echo $row_QQ2dm_day['c_dm'].'/'.$row_QQ2dm_day['c_co']; ?></H3>
+                      
+                                    <P>DM Per Day</P>
+                                    <H3 align="center"><?php echo $row_QQ2dm_day['c_dm'].'/'.$row_QQ2dm_day['c_co']; ?></H3>
+                                  </DIV>
+                                  <DIV class="icon">
+                                    <I class="ion ion-person-add"></I>
+                                  </DIV>
+                                  <A href="#" DATA-TOGGLE="modal" DATA-TARGET="#_showdata_dm_perday" class="small-box-footer">More info <I class="fas fa-arrow-circle-right"></I></A>
+                                  </DIV>-->
+								  <BR>
+								  				<DIV class="icheck-success d-inline">
                                                     <INPUT type="radio" name="r1" checked="" value="DM"  id="radioSuccess1">
                                                     <LABEL for="radioSuccess1">DM
                                                     </LABEL>
                                                 </DIV>
-                                            </DIV>
-                                        </DIV>
-										<DIV class="col-sm-3">
-                                            <DIV class="form-group clearfix">
-                                                <DIV class="icheck-success d-inline">
+										
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+												 <DIV class="icheck-success d-inline">
                                                     <INPUT type="radio" name="r1" value="HT"  id="radioSuccess2" >
                                                     <LABEL for="radioSuccess2">HT
                                                     </LABEL>
                                                 </DIV>
-                                            </DIV>
-                                        </DIV>
-                                        <DIV class="col-sm-2">
-                                            <DIV class="form-group clearfix">
-                                                <DIV class="icheck-success d-inline">
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<DIV class="icheck-success d-inline">
                                                     <INPUT type="radio"  name="r1" value="DT" id="radioSuccess3" >
                                                     <LABEL for="radioSuccess3"> DT
                                                     </LABEL>
                                                 </DIV>
-                                            </DIV>
-                                        </DIV>
-										<DIV class="col-sm-2">
-                                            <DIV class="form-group clearfix">
-                                                <DIV class="icheck-success d-inline">
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+												<DIV class="icheck-success d-inline">
                                                     <INPUT type="radio" name="r1" value="EPI" id="radioSuccess4" >
                                                     <LABEL for="radioSuccess4"> EPI
                                                     </LABEL>
                                                 </DIV>
-                                            </DIV>
-                                        </DIV>
-                                        <DIV class="col-md-10" align="right">
-                                            <BUTTON onClick="fetch_dataall()" id="btProcess" class="btn btn-primary btn-lg float-right">ประมวลผล</BUTTON>
-                                        </DIV>
-                                    </DIV>
+													
                                 </DIV>
-                            </DIV>
+								     
+											
+													<!--<DIV class="small-box bg-yellow">
+																		  <DIV class="inner">
+																		  <H3 align="center"><?php echo $row_QQ2ht_day['c_dm'].'/'.$row_QQ2ht_day['c_co']; ?></H3>
+																<P>HT Per Day</P>
+												<DIV class="row">
+												<DIV class="col-md-6">
+													<H3 align="center"><?php echo $row_QQ2ht_day['c_dm']; ?></H3>
+												</DIV>
+												<DIV class="col-md-6">
+												  <H3 align="center"><?php echo $row_QQ2ht_day['c_co']; ?></H3>
+												</DIV>
+												</DIV>
+											  </DIV>
+											  <DIV class="icon">
+												<I class="ion ion-person-add"></I>
+											  </DIV>
+												 <A href="#" DATA-TOGGLE="modal" DATA-TARGET="#_showdata_ht_perday" class="small-box-footer">More info <I class="fas fa-arrow-circle-right"></I></A>
+											  </DIV>-->
+											  
+									
+                            	</DIV>
+
+							      <DIV class="col-md-24" align="left">
+												<DIV class="card-header">
+													<H3 class="card-header text-white bg-info"> 
+														<a href="https://claim-nhso.moph.go.th/nhso/" target="_blank"><BUTTON id="bt_link" class="btn btn-danger btn-lg float-right">เว็บ Moph</BUTTON></a>&nbsp;&nbsp;&nbsp;
+														<BUTTON onClick="fetch_dataall()" id="btProcess" class="btn btn-warning btn-lg float-right">ประมวลผล</BUTTON></H3>
+												</DIV>
+												
+                                    		
+									
+								</DIV>
                     </DIV>
                 </DIV>
             </DIV>
@@ -470,13 +453,13 @@ if (isset($_SESSION['mem_id'])) {
  $(function(){
  		$("#dateStart").inputmask({
 			mask:'9999-99-99',
-			placeholder: '#',
+			placeholder: 'yyyy-mm-dd',
  			showMaskOnHover: true,
   			showMaskOnFocus: true,
 		}) ;
 		$("#dateEnd").inputmask({
 			mask:'9999-99-99',
-			placeholder: '#',
+			placeholder: 'yyyy-mm-dd',
  			showMaskOnHover: true,
   			showMaskOnFocus: true,
 		})	
@@ -649,6 +632,8 @@ $(document).on('click','.chk_error',function(event){
         });
 
     </SCRIPT>
+	
+
 </BODY>
 
 </HTML>

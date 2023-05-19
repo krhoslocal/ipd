@@ -45,7 +45,7 @@ if (isset($_GET['msg'])) {
   </DIV>
   <BR>
   <DIV class="card">
-    <DIV class="card-body login-card-body" align="center"><B><IMG src="/ipd/images/logo.gif" width="225" height="241"></B><B><br><?php echo $name_system; ?></B><BR>
+    <DIV class="card-body login-card-body" align="center"><B><IMG src="/ipd/images/logo.gif" width="225" height="241"></B><B><BR><?php echo $name_system; ?></B><BR>
       <B>
       <P class="login-box-msg"><?php echo $name_system_th; ?></P>
       </B> <B class="text-black-80">
@@ -58,7 +58,7 @@ if (isset($_GET['msg'])) {
     <DIV class="card-body login-card-body">
       <FORM action="login_check.php" method="POST">
         <DIV class="input-group mb-3">
-          <INPUT type="text" name="txt_user" class="form-control" PLACEHOLDER="Username">
+          <INPUT type="text" name="txt_user" id="txt_user" class="form-control" PLACEHOLDER="Username">
           <DIV class="input-group-append">
             <DIV class="input-group-text">
               <SPAN class="fas fa-user"></SPAN>

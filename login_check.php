@@ -4,10 +4,14 @@ $user=$_POST['txt_user'];
 $passwd=$_POST['txt_password'];
 
 $stmt = $pdo->prepare("SELECT a.*,a.p_moph_encode AS gen_key from tb_member AS a WHERE a.mem_user = ? and  a.mem_password = ?");
+$stmt_version = $pdo->prepare("SELECT * from rb_version where v_no='1'");
+
 
 $stmt->execute([$user, $passwd]);
-
+$stmt_version->execute();
+//-----
 $row = $stmt->fetch();
+$_getrow = $stmt_version->fetch();
 
 if($stmt->rowCount() == 1 ){
     session_start();
@@ -22,6 +26,10 @@ if($stmt->rowCount() == 1 ){
 	  $_SESSION['_tomaster'] = $row['_tomaster'];
     $_SESSION['_p_moph'] = $row['gen_key'];
     $_SESSION['_cid'] = $row['cid'];
+
+
+    $_SESSION['_version'] = $_getrow['v_version'];
+    $_SESSION['_namesystem'] = $_getrow['v_name_system'];
 
     $url_gen = 'https://cvp1.moph.go.th/token?Action=get_moph_access_token&user=3330300561034&password_hash=BD3E770402B718DC7D4804BB13489CF73C3E3AE8F26AA6C4CBB911F91C060878&hospital_code=10928';
 		//$url = 'https://cvp1.moph.go.th/api/SendMessageTraget';

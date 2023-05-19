@@ -503,7 +503,7 @@ $sql = 'SELECT a.regdate,a.hn,pt.getFullname(a.hn) AS fullname,a.namelab,a.resul
 $query = mysqli_query($dbnurse,$sql);
 $data .= '<div class="card">
             <div class="card-body">
-              <table id="tables_ipd" class="table table-bordered table-borderless table-striped">
+              <table id="tables_ipd" class="table table-bordered table-striped">
                 <thead>
                   <tr align="center">
 				  	<th style="width: 12%">Claim
@@ -602,7 +602,7 @@ if (mysqli_num_rows($query) > 0)
 }
 else
 {	     
-	$data .= '<tr><td colspan="12" align="center">ไม่มีข้อมูล</td></tr>';
+	$data .= '<tr><td colspan="13" align="center">ไม่มีข้อมูล</td></tr>';
 }
 $data .='</tbody></table></div></div>
 			<div class="modal-footer"> 
@@ -739,7 +739,7 @@ if (mysqli_num_rows($query) > 0)
 }
 else
 {	     
-	$data .= '<tr><td colspan="12" align="center">ไม่มีข้อมูล</td></tr>';
+	$data .= '<tr><td colspan="13" align="center">ไม่มีข้อมูล</td></tr>';
 }
 $data .='</tbody></table></div></div>
 			<div class="modal-footer"> 
@@ -860,7 +860,7 @@ if (mysqli_num_rows($query) > 0)
 }
 else
 {	     
-	$data .= '<tr><td colspan="11" align="center">ไม่มีข้อมูล</td></tr>';
+	$data .= '<tr><td colspan="13" align="center">ไม่มีข้อมูล</td></tr>';
 }
 $data .='</tbody></table></div></div>
 			<div class="modal-footer"> 
@@ -986,7 +986,7 @@ if (mysqli_num_rows($query) > 0)
 }
 else
 {	     
-	$data .= '<tr><td colspan="11" align="center">ไม่มีข้อมูล</td></tr>';
+	$data .= '<tr><td colspan="13" align="center">ไม่มีข้อมูล</td></tr>';
 }
 $data .='</tbody></table></div></div>
 			<div class="modal-footer"> 
